@@ -1,0 +1,42 @@
+{
+	"info": {
+		"_postman_id": "833a8bcd-ec9a-4373-bf93-2e08c9773cac",
+		"name": "CourierTracking",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "20549392"
+	},
+	"item": [
+		{
+			"name": "add",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "move",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "findLogsByCourierId",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "getTotalTravelDistance",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
