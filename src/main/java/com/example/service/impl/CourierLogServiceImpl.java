@@ -24,7 +24,7 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class CourierLogServiceImpl implements CourierLogService {
 
-    private final int STORE_DISTANCE_TO_LOG = 100;
+    private static final int STORE_DISTANCE_TO_LOG = 100;
     private final CourierLogRepository courierLogRepository;
     private final StoreService storeService;
 
