@@ -10,7 +10,7 @@ import java.util.Optional;
 public interface CourierLogService {
     void create(CourierDTO courierLogDTO);
 
-    Optional<CourierLogDTO> findCourierLogByLastMovingTimeAfterAndCourierIdEqualsAndEnteranceStoreIdEquals(LocalDateTime date, String courierId, String storeId);
+    Optional<CourierLogDTO> findCourierLogByLastMovingTimeAfterAndCourierIdEqualsAndStoreIdEquals(LocalDateTime date, String courierId, String storeId);
 
     List<CourierLogDTO> findByCourierId(String courierId);
 }

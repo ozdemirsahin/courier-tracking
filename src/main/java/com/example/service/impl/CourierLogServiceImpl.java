@@ -39,7 +39,7 @@ public class CourierLogServiceImpl implements CourierLogService {
                 .ifPresent(storeDTO -> {
                     log.info("Courier is near to " + storeDTO.getName());
 
-                    Optional<CourierLogDTO> optionalCourierLogDTO = findCourierLogByLastMovingTimeAfterAndCourierIdEqualsAndEnteranceStoreIdEquals(
+                    Optional<CourierLogDTO> optionalCourierLogDTO = findCourierLogByLastMovingTimeAfterAndCourierIdEqualsAndStoreIdEquals(
                             LocalDateTime.now().minusMinutes(1), courierDTO.getId(), storeDTO.getId());
 
                     if(optionalCourierLogDTO.isPresent()){
@@ -48,13 +48,13 @@ public class CourierLogServiceImpl implements CourierLogService {
                         log.info("courier log created for courier:" + courierDTO.getPersonalNo() + ", store:" + storeDTO.getName());
                         CourierLogDTO courierLogDTO=CourierLogDTO.builder().id(UUID.randomUUID().toString()).courierId(courierDTO.getId()).storeId(storeDTO.getId()).lastMovingTime(LocalDateTime.now()).build();
                         CourierLog courierLog = courierLogConverter.toEntity(courierLogDTO);
-                        courierLogConverter.toDTO(courierLogRepository.save(courierLog));
+                        courierLogRepository.save(courierLog);
                     }
                 });
     }
 
     @Override
-    public Optional<CourierLogDTO> findCourierLogByLastMovingTimeAfterAndCourierIdEqualsAndEnteranceStoreIdEquals(LocalDateTime date, String courierId, String storeId) {
+    public Optional<CourierLogDTO> findCourierLogByLastMovingTimeAfterAndCourierIdEqualsAndStoreIdEquals(LocalDateTime date, String courierId, String storeId) {
         return courierLogRepository.findCourierLogByLastMovingTimeAfterAndCourierIdEqualsAndStoreIdEquals(date, courierId, storeId).map(courierLogConverter::toDTO);
     }
 
